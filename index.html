@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mrunal — A Story Called Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="particles"></div>
+<div id="toast"></div>
+
+<main>
+  <section class="screen active" id="intro">
+    <div class="orb"></div>
+    <p class="eyebrow">A little something for someone important</p>
+    <h1>Mrunal<span>♥</span></h1>
+    <p class="subtitle">Before you get your birthday wish...<br>you have to unlock the story.</p>
+    <button class="primary" onclick="startStory()">ENTER THE STORY <span>→</span></button>
+    <p class="tiny">Best experienced with sound 🔊</p>
+  </section>
+
+  <section class="screen" id="notice">
+    <div class="chapter">LEVEL 01 · THE BEGINNING</div>
+    <div class="date">20 SEPTEMBER 2017</div>
+    <div class="notice-board">
+      <div class="pin"></div>
+      <div class="paper">
+        <div class="scribble">COLLEGE NOTICE</div>
+        <h2>Somewhere between<br>ordinary & unexpected...</h2>
+        <p>A girl was looking at a notice board.</p>
+        <p>And a very nervous boy noticed her.</p>
+        <button class="small" onclick="sayHi()">What happened next?</button>
+      </div>
+    </div>
+    <div id="hiScene" class="hidden story-reveal">
+      <div class="speech me">Hi 👋</div>
+      <div class="speech her">Hi</div>
+      <div class="run">🏃‍♀️💨</div>
+      <p>And then... <strong>you ran away. 😂</strong></p>
+      <p class="muted">Meanwhile, someone was standing there with butterflies going completely out of control.</p>
+      <button class="primary" onclick="next('tanvi')">CONTINUE →</button>
+    </div>
+  </section>
+
+  <section class="screen" id="tanvi">
+    <div class="chapter">LEVEL 02 · OPERATION FRIENDSHIP</div>
+    <h2 class="big">Mission: Become Friends</h2>
+    <p class="subtitle">Confidence: 2% &nbsp;|&nbsp; Butterflies: 98% &nbsp;|&nbsp; Strategy: questionable 😭</p>
+    <div class="mission">
+      <div class="agent">🕵️</div>
+      <div class="target">👩</div>
+      <div class="line"></div>
+      <div class="agent-name">TANVI</div>
+      <p>Recruiting the one person who could make friendship happen.</p>
+      <button class="small" onclick="recruitTanvi()">RECRUIT TANVI</button>
+    </div>
+    <div id="tanviDone" class="hidden story-reveal">
+      <h3>MISSION ACCOMPLISHED ✅</h3>
+      <p>Tanvi became friends with Mrunal.</p>
+      <p>And slowly, two strangers became friends.</p>
+      <button class="primary" onclick="next('phone')">NEXT CHAPTER →</button>
+    </div>
+  </section>
+
+  <section class="screen" id="phone">
+    <div class="chapter">LEVEL 03 · THE LATE-NIGHT ERA</div>
+    <h2 class="big">One number. A thousand conversations.</h2>
+    <p class="subtitle">Tap the phone to unlock the memories.</p>
+    <div class="phone" onclick="nextChat()">
+      <div class="phone-top">9:47 PM</div>
+      <div class="chat-head">Mrunal <span>●</span></div>
+      <div id="chat" class="chat"></div>
+      <div class="tap">TAP TO CONTINUE</div>
+    </div>
+    <button id="phoneNext" class="primary hidden" onclick="next('quiz')">I REMEMBER 😌 →</button>
+  </section>
+
+  <section class="screen" id="quiz">
+    <div class="chapter">LEVEL 04 · BEST FRIEND CHECK</div>
+    <h2 class="big">Let's see if you actually know this friendship.</h2>
+    <div class="quiz-card">
+      <div id="qCount">Question 1 / 5</div>
+      <h3 id="question"></h3>
+      <div id="answers" class="answers"></div>
+      <p id="quizFeedback"></p>
+    </div>
+  </section>
+
+  <section class="screen" id="timeline">
+    <div class="chapter">LEVEL 05 · THE JOURNEY</div>
+    <h2 class="big">2017 → 2026</h2>
+    <p class="subtitle">Not every year needs a photograph to have a memory.</p>
+    <div class="years" id="years"></div>
+    <div id="yearCard" class="year-card">
+      <div class="year-placeholder">Choose a year.</div>
+    </div>
+    <button id="timelineNext" class="primary hidden" onclick="next('heart')">KEEP GOING →</button>
+  </section>
+
+  <section class="screen" id="heart">
+    <div class="chapter">LEVEL 06 · THINGS I DON'T ALWAYS SAY</div>
+    <h2 class="big">One click at a time.</h2>
+    <p class="subtitle">Some things are easier to write than say.</p>
+    <div class="reveal-box" onclick="revealHeart()">
+      <div id="heartText">TAP HERE</div>
+      <div class="counter" id="heartCounter">1 / 5</div>
+    </div>
+    <button id="heartNext" class="primary hidden" onclick="next('cake')">ONE LAST LEVEL →</button>
+  </section>
+
+  <section class="screen" id="cake">
+    <div class="chapter">FINAL LEVEL · MAKE A WISH</div>
+    <h2 class="big">Okay, birthday girl...</h2>
+    <p class="subtitle">Your final mission is simple: light all the candles.</p>
+    <div class="cake-wrap" id="cakeWrap">
+      <div class="flame-row">
+        <button class="flame" onclick="blow(this)">🔥</button>
+        <button class="flame" onclick="blow(this)">🔥</button>
+        <button class="flame" onclick="blow(this)">🔥</button>
+        <button class="flame" onclick="blow(this)">🔥</button>
+        <button class="flame" onclick="blow(this)">🔥</button>
+      </div>
+      <div class="cake-top"></div>
+      <div class="cake-body">🎂</div>
+    </div>
+    <p id="cakeHint">Tap each flame ✨</p>
+    <button id="finalButton" class="primary hidden" onclick="finale()">MAKE YOUR WISH ✨</button>
+  </section>
+
+  <section class="screen final-screen" id="final">
+    <canvas id="fireworks"></canvas>
+    <div class="final-content">
+      <p class="eyebrow">20 · 09 · 2026</p>
+      <div class="big-heart">♥</div>
+      <h1>HAPPY BIRTHDAY<br><span>MRUNAL</span>!</h1>
+      <div class="letter">
+        <p>Mrunal,</p>
+        <p>In 2017, I walked up to a girl standing near a notice board and said a very simple “Hi”. She said “Hi” back... and ran away. 😂</p>
+        <p>I had absolutely no idea that one awkward little moment would eventually become one of the most important friendships in my life.</p>
+        <p>From late-night messages to all the random conversations, from laughing at nonsense to being there through the highs and lows — somehow, all these years later, we're still here.</p>
+        <p>Sometimes I expected too much. Sometimes I fought with you. Sometimes things weren't easy.</p>
+        <p>And there were moments when you could have walked away.</p>
+        <p class="highlight">But you stayed.</p>
+        <p>That's something I'll always be grateful for.</p>
+        <p>You're genuinely one of the best people I have in my life, and I honestly wish everyone could have a best friend like you.</p>
+        <p>So here's to more laughter, more arguments, more nonsense, more memories — and many more years of this crazy friendship.</p>
+        <p class="signature">Happy Birthday, best friend. ❤️<br>— Your annoying friend</p>
+      </div>
+      <button class="small replay" onclick="location.reload()">PLAY IT AGAIN ↻</button>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
